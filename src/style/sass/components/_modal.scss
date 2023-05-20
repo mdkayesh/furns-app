@@ -1,0 +1,218 @@
+@use "../abstracts/" as *;
+
+.modal-container {
+  .modal {
+    visibility: hidden;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 2050;
+    padding: 30px 0;
+    @include lg {
+      overflow: hidden auto;
+    }
+    &.show {
+      visibility: visible;
+    }
+    .ht-modal {
+      position: relative;
+      margin: auto;
+      transform: translateY(-400px);
+      overflow: hidden;
+      padding: 20px;
+
+      @include xs {
+        margin: 25px;
+        height: 80vh;
+        // overflow: auto;
+      }
+      @include sm {
+        max-width: 500px;
+        margin: 30px auto;
+      }
+      @include md {
+        max-width: 750px;
+      }
+      @include lg {
+        max-width: 960px;
+        height: auto;
+        // overflow: hidden;
+        margin: 20px auto;
+      }
+
+      &.show {
+        transform: translateY(0);
+        @include transition(0.3s, ease);
+      }
+      .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        background: none;
+        border: none;
+        outline: none;
+        background-color: map-get($orange, 500);
+        border-radius: 50%;
+        padding: 5px;
+        .close-bar div {
+          background-color: map-get($white, 100);
+        }
+      }
+    }
+    .modal-body {
+      background-color: white;
+      padding: 10px 20px;
+      font-size: toRem(13);
+      overflow: auto;
+
+      @include xs {
+        height: 80vh;
+        // overflow: auto;
+      }
+
+      @include lg {
+        height: auto;
+      }
+
+      strong {
+        color: map-get($black, 100);
+        font-weight: 600;
+      }
+      h2 {
+        margin: 10px 0;
+      }
+      .prize {
+        display: flex;
+        font-size: 24px;
+        margin-bottom: 12px;
+        del {
+          color: map-get($white, 300);
+          margin-right: 15px;
+        }
+        span {
+          color: black;
+        }
+      }
+      .product-buttons {
+        margin-top: 20px;
+        .counter-cart {
+          display: flex;
+          .product-counter {
+            max-width: 120px;
+            display: flex;
+            margin-right: 20px;
+            border: 1px solid map-get($orange, 500);
+
+            @include max-sm {
+              width: 105px;
+            }
+            .btn {
+              padding: 15px 6px;
+              border: none;
+              outline: none;
+              background: none;
+
+              cursor: pointer;
+              &:hover {
+                background: map-get($orange, 500);
+                color: white;
+              }
+              &.decrement {
+                border-right: 1px solid map-get($orange, 500);
+              }
+              &.increment {
+                border-left: 1px solid map-get($orange, 500);
+              }
+            }
+            input {
+              width: 100%;
+              border: none;
+              outline: none;
+              text-align: center;
+              font-weight: 600;
+            }
+          }
+        }
+        .wish-compare {
+          display: flex;
+          flex-wrap: wrap;
+          button {
+            margin-right: 15px;
+            margin-top: 20px;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: capitalize;
+            cursor: pointer;
+            font-size: toRem(13);
+            white-space: nowrap;
+            &:hover {
+              color: map-get($orange, 500);
+            }
+            svg {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      .social {
+        display: flex;
+        text-transform: capitalize;
+        margin-top: 20px;
+        strong {
+          color: black;
+          margin-right: 10px;
+        }
+        a {
+          margin-right: 10px;
+          font-size: toRem(16);
+          color: map-get($black, 100);
+        }
+      }
+    }
+  }
+  .fade {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.195);
+    z-index: 2040;
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: map-get($white, 100);
+    color: map-get($black, 100);
+    box-shadow: $boxShadow;
+    border-radius: 50%;
+    right: -40px;
+    visibility: hidden;
+    @include transition(0.5s, ease);
+    &::after {
+      font-size: 13px;
+    }
+    &:hover {
+      background-color: map-get($orange, 500);
+      color: map-get($white, 100);
+    }
+  }
+
+  .swiper-button-prev {
+    @extend .swiper-button-next;
+    left: -40px;
+  }
+  &:hover .swiper-button-next {
+    right: 10px;
+    visibility: visible;
+  }
+  &:hover .swiper-button-prev {
+    left: 10px;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,111 @@
+@use "../abstracts/" as *;
+
+.aside-cart {
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  height: 100%;
+  width: 350px;
+  @include transition(0.4s, ease);
+  &.show {
+    right: 0;
+  }
+
+  .inner-cart {
+    position: relative;
+    height: 100%;
+    background-color: white;
+    .cart-top {
+      display: flex;
+      text-transform: capitalize;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid map-get($white, 200);
+    }
+    .cart-item {
+      height: 70%;
+
+      .inner-item {
+        overflow: auto;
+        height: 100%;
+        .product-item {
+          position: relative;
+          display: flex;
+          padding: 15px 10px;
+          height: 160px;
+          width: 100%;
+          font-size: 16px;
+          border-bottom: 1px solid map-get($white, 150);
+          figure {
+            flex-basis: 35%;
+            height: 100%;
+          }
+          .product-info {
+            flex-basis: 60%;
+            padding-left: 15px;
+            p {
+              span {
+                color: map-get($orange, 500);
+              }
+            }
+            a {
+              color: map-get($black, 300);
+            }
+          }
+          .cross {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 25px;
+            border: none;
+            cursor: pointer;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            border-radius: 50%;
+            background: none;
+
+            &:hover {
+              background-color: rgb(166, 46, 46);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    .cart-view {
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      a {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: map-get($white, 100);
+        background-color: map-get($orange, 500);
+        padding: 7px 10px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        font-weight: 600;
+        @include transition(0.4s, ease-in-out);
+        &:hover {
+          color: map-get($white, 100);
+          background-color: map-get($blue, 200);
+        }
+        span {
+          background-color: map-get($white, 100);
+          color: map-get($orange, 500);
+          border-radius: 10px;
+          padding: 2px 5px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

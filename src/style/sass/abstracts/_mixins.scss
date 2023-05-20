@@ -1,0 +1,33 @@
+@use "./breakpoints" as break;
+
+// make color mizins
+
+@mixin bg-color($color, $num) {
+  background-color: #{map-get($color, $num)};
+}
+
+@mixin color($color, $num) {
+  color: #{map-get($color, $num)};
+}
+
+// @media breakpoint up
+
+@mixin breakpoint-up($size) {
+  @media (max-width: #{map-get(break.$breakpoints, $size)}) {
+    @content;
+  }
+}
+
+// transition cross browser
+
+@mixin transition($time, $effect) {
+  -webkit-transition: $time $effect;
+  -moz-transition: $time $effect;
+  -o-transition: $time $effect;
+  transition: $time $effect;
+}
+
+// overlay for aside tags
+
+@mixin overlay {
+}

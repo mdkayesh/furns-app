@@ -1,0 +1,46 @@
+@use "../abstracts/" as *;
+
+.section-hero {
+  background-color: map-get($white, 200);
+  text-align: center;
+  text-transform: capitalize;
+  padding: 100px 30px;
+
+  h2 {
+    margin: 0px;
+    font-size: 32px;
+    overflow: hidden;
+    line-height: 1.58;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: map-get($black, 100);
+    @include max-sm {
+      font-size: toRem(27);
+    }
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    li {
+      color: map-get($black, 200);
+      &:not(:last-child) {
+        margin-right: 10px;
+        &::after {
+          content: "/";
+          padding-left: 10px;
+        }
+      }
+      a {
+        color: map-get($black, 100);
+        text-transform: capitalize;
+        &:hover {
+          color: map-get($orange, 500);
+        }
+      }
+    }
+  }
+}

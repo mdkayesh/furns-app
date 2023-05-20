@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+
+.no-product {
+  text-align: center;
+  svg {
+    color: map-get($orange, 500);
+    font-size: 10rem;
+    @include max-sm {
+      font-size: 5rem;
+    }
+  }
+  p {
+    color: map-get($black, 100);
+    font-weight: 600;
+  }
+}

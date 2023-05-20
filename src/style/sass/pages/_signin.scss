@@ -1,0 +1,49 @@
+@use "../abstracts/" as *;
+
+.sign-in {
+  padding: 120px 0;
+  form {
+    padding: 50px 30px;
+    box-shadow: rgb(0 0 0 / 6%) 0px 0px 12px 3px;
+    label,
+    input {
+      width: 100%;
+    }
+    label {
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+      color: rgb(33, 33, 33);
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      display: block;
+      line-height: 1;
+      padding: 12px 15px;
+      transition: all 0.4s ease 0s;
+      border-radius: 3px;
+      font-family: "Open Sans";
+      font-size: 14px;
+      margin-bottom: 18px;
+      outline: none;
+      border: 1px solid map-get($white, 150);
+      &:focus {
+        border: 1px solid map-get($orange, 500);
+      }
+    }
+    button {
+      margin-bottom: 10px;
+    }
+    .button-basic {
+      width: 100%;
+      text-transform: uppercase;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

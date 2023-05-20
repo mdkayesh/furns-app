@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+.cart-button {
+  position: fixed;
+  bottom: 25%;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  width: 120px;
+  background-color: map-get($blue, 200);
+  color: map-get($white, 100);
+  text-transform: capitalize;
+  border: none;
+  box-shadow: rgb(0 0 0 / 75%) 0px 0px 16px -1px;
+  cursor: pointer;
+  z-index: 88;
+
+  // animate the cart button
+
+  &.animated {
+    animation: upDown 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+
+  @keyframes upDown {
+    0% {
+      transform: translateY(-50px);
+    }
+    25% {
+      transform: translateY(80px);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @include md {
+    display: flex;
+  }
+  svg {
+    color: map-get($orange, 500);
+    font-size: toRem(20);
+  }
+  span {
+    margin-top: 10px;
+    font-size: toRem(18);
+  }
+  .usd {
+    color: map-get($orange, 500);
+    background-color: map-get($white, 100);
+    width: 60%;
+    padding: 5px 0;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,98 @@
+@use "../abstracts/" as *;
+
+.wish-list {
+  .noproduct {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wish-table {
+    overflow: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      thead {
+        th {
+          white-space: nowrap;
+          text-transform: uppercase;
+          color: rgb(33, 33, 33);
+          font-size: 14px;
+          font-weight: 700;
+          background-color: rgb(235, 235, 235);
+          border: none !important;
+          text-align: center !important;
+          padding: 21px 45px 22px !important;
+          //   border-bottom: 1px solid map-get($white, 150);
+        }
+      }
+
+      tbody {
+        border-right: 1px solid rgb(235, 235, 235);
+        border-left: 1px solid rgb(235, 235, 235);
+        border-bottom: 1px solid rgb(235, 235, 235);
+
+        tr {
+          &:not(:first-child) {
+            border-top: 1px solid map-get($white, 150);
+          }
+        }
+        td {
+          padding: 0.75rem;
+          text-align: center;
+          border: none !important;
+          vertical-align: middle !important;
+
+          .delete-icon {
+            font-size: 20px;
+            cursor: pointer;
+
+            &:hover {
+              color: map-get($orange, 500);
+            }
+          }
+
+          .add-to-cart-button {
+            height: 30px;
+            padding: 0 15px;
+            background-color: map-get($orange, 500);
+            border-radius: 10px;
+            color: map-get($white, 100);
+            border: none;
+            outline: none;
+            line-height: 30px;
+            cursor: pointer;
+            text-transform: capitalize;
+            @include transition(0.4s, ease);
+
+            &.disabled {
+              opacity: 0.8;
+              pointer-events: none;
+              color: map-get($orange, 500);
+              background-color: map-get($white, 100);
+              border: 1px solid map-get($orange, 500);
+            }
+
+            &:hover {
+              color: map-get($orange, 500);
+              background-color: map-get($white, 100);
+              border: 1px solid map-get($orange, 500);
+            }
+          }
+
+          a {
+            display: block;
+            font-weight: 600;
+            color: map-get($black, 100);
+            img {
+              width: 104px;
+              height: 104px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

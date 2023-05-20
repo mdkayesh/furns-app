@@ -1,0 +1,72 @@
+@use "../abstracts/" as *;
+
+.navigation {
+  background-color: map-get($blue, 200);
+  display: none;
+  z-index: 999;
+  @include lg {
+    display: block;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .navbar-nav {
+      display: flex;
+      .nav-item {
+        position: relative;
+        &:hover .nav-link {
+          color: map-get($orange, 500);
+        }
+        &:hover .dropdown {
+          transform: rotateX(0);
+        }
+        &:not(:first-child) {
+          margin-left: 30px;
+        }
+        .nav-link {
+          display: block;
+          padding: 15px 0;
+          color: white;
+          display: flex;
+          align-items: center;
+          font-size: toRem(14);
+          text-transform: capitalize;
+          @include transition(0.4s, ease);
+
+          svg {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      width: 180px;
+      transform: rotateX(90deg);
+      transform-origin: 0 0;
+      box-shadow: $boxShadow;
+      z-index: 99;
+      @include transition(0.4s, ease);
+      ul {
+        li {
+          &:not(:last-child) {
+            border-bottom: 1px solid map-get($white, 200);
+          }
+          a {
+            display: block;
+            padding: 10px 15px;
+            font-size: toRem(14);
+            color: map-get($black, 300);
+            &:hover {
+              color: map-get($orange, 500);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use "../abstracts/" as *;
+
+.contact {
+  .map {
+    margin: 100px 0 55px 0;
+    iframe {
+      height: 500px;
+      width: 100%;
+      @include max-lg {
+        height: 350px;
+      }
+    }
+  }
+
+  .contact-info {
+    background-color: map-get($white, 200);
+    padding: 50px 25px;
+    height: 100%;
+    h2 {
+      font-weight: 500;
+    }
+    .info-item {
+      display: flex;
+      margin-top: 25px;
+      h3 {
+        min-width: 80px;
+        font-family: Raleway;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      a {
+        color: map-get($black, 300);
+        &:hover {
+          color: map-get($orange, 500);
+        }
+      }
+    }
+  }
+
+  .form {
+    background-color: map-get($white, 200);
+    padding: 50px 25px;
+    h2 {
+      font-weight: 500;
+    }
+    form {
+      label {
+        width: 100%;
+        margin: 15px 0 6px 0;
+        display: block;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      input {
+        background-color: white;
+        outline: none;
+        padding: 10px;
+        border: none;
+        width: 100%;
+        @include transition(0.4s, ease);
+        &:focus {
+          outline: 1px solid map-get($orange, 500);
+        }
+      }
+      textarea {
+        width: 100%;
+        outline: none;
+        border: none;
+        padding: 8px 10px;
+        margin-bottom: 20px;
+        &:focus {
+          outline: 1px solid map-get($orange, 500);
+        }
+      }
+
+      .button-basic {
+        width: 100%;
+        &:hover {
+          color: map-get($white, 100);
+        }
+      }
+    }
+  }
+}

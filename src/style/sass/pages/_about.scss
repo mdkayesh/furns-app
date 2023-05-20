@@ -1,0 +1,23 @@
+@use "../abstracts/" as *;
+
+.about {
+  h1 {
+    font-size: 34px;
+    line-height: 45px;
+    margin-bottom: 50px;
+  }
+  figure {
+    height: 300px;
+    padding: 15px;
+  }
+  .content {
+    h2 {
+      margin: 20px 0;
+      font-weight: 600;
+      font-size: toRem(20);
+    }
+    P {
+      font-size: toRem(15);
+    }
+  }
+}

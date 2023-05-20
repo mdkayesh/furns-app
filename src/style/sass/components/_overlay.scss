@@ -1,0 +1,20 @@
+@use "../abstracts/" as *;
+
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.152);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  @include transition(0.5s, ease);
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+  }
+}

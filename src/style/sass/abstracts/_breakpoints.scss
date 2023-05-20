@@ -1,0 +1,82 @@
+// media break points
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1000px,
+  xxl: 1400px,
+);
+
+@mixin xs {
+  @media (min-width: #{map-get($breakpoints, xs)}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{map-get($breakpoints, sm)}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{map-get($breakpoints, md)}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width:#{map-get($breakpoints, lg)}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{map-get($breakpoints, xl)}) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: #{map-get($breakpoints, xxl)}) {
+    @content;
+  }
+}
+
+// custom breakpoints
+
+@mixin breakpoint($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+// max-width breakpoints
+
+@mixin max-xs {
+  @media (max-width: #{map-get($breakpoints, xs)}) {
+    @content;
+  }
+}
+@mixin max-sm {
+  @media (max-width: #{map-get($breakpoints, sm)}) {
+    @content;
+  }
+}
+@mixin max-md {
+  @media (max-width: #{map-get($breakpoints, md)}) {
+    @content;
+  }
+}
+@mixin max-lg {
+  @media (max-width:#{map-get($breakpoints, lg)}) {
+    @content;
+  }
+}
+@mixin max-xl {
+  @media (max-width: #{map-get($breakpoints, xl)}) {
+    @content;
+  }
+}
+@mixin max-xxl {
+  @media (max-width: #{map-get($breakpoints, xxl)}) {
+    @content;
+  }
+}

@@ -1,0 +1,46 @@
+@use "../abstracts/" as *;
+
+.collection {
+  .filter-products {
+    padding-bottom: 50px;
+  }
+  .sorting-area {
+    .products-counter {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    background-color: map-get($white, 200);
+    margin: 50px 0;
+    padding: 10px 15px;
+    @include max-sm {
+      text-align: center;
+    }
+    .sort {
+      text-align: right;
+      @include max-sm {
+        text-align: center;
+        margin-top: 15px;
+      }
+      label {
+        font-size: 13px;
+        font-weight: 700;
+      }
+      select {
+        padding: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: map-get($white, 100);
+        margin-left: 7px;
+        &:focus {
+          outline: 1px solid map-get($orange, 500);
+        }
+        option {
+          padding: 10px;
+          display: block;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

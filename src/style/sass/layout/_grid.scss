@@ -1,0 +1,154 @@
+@use "../abstracts/breakpoints" as *;
+@use "../abstracts/mixins" as mixin;
+@use "../abstracts/functions" as func;
+@use "sass:math";
+
+.container {
+  margin: 0 auto;
+  padding: 0 func.toRem(15);
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+
+  //   responsive container
+
+  @include xs {
+    max-width: 100%;
+  }
+  @include sm {
+    max-width: 540px;
+  }
+  @include md {
+    max-width: 720px;
+  }
+  @include lg {
+    max-width: 960px;
+  }
+
+  @include xxl {
+    max-width: 1140px;
+  }
+}
+
+$grid-columns: 12;
+$grid-gap: (
+  0: 0,
+  1: func.toRem(10),
+  2: func.toRem(20),
+  3: func.toRem(30),
+);
+$layoutValues: flex-start, flex-end, center, space-between, space-around,
+  space-evenly;
+$alingValues: baseline, center, flex-start, flex-end, stretch;
+
+// base layout classes
+
+.d-flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+// gap classes
+
+@each $key, $val in $grid-gap {
+  .gap-#{$key} > * {
+    padding: $val;
+  }
+
+  .gap-#{$key} {
+    margin-left: -$val;
+    margin-right: -$val;
+  }
+}
+
+// justify-content classes
+
+@each $val in $layoutValues {
+  .justify-#{$val} {
+    justify-content: $val;
+  }
+}
+
+@each $val in $alingValues {
+  .align-#{$val} {
+    align-items: $val;
+  }
+}
+
+// col classes
+
+// for extra small screen and up
+
+@include xs {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i} {
+      flex-grow: 0;
+      box-sizing: border-box;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+// for small screen and up
+
+@include sm {
+  @for $i from 1 through $grid-columns {
+    .col-sm-#{$i} {
+      flex-grow: 0;
+      box-sizing: border-box;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+// for medium screen and up
+
+@include md {
+  @for $i from 1 through $grid-columns {
+    .col-md-#{$i} {
+      flex-grow: 0;
+      box-sizing: border-box;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+// for large screen and up
+
+@include lg {
+  @for $i from 1 through $grid-columns {
+    .col-lg-#{$i} {
+      flex-grow: 0;
+      box-sizing: border-box;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+// for extra large screen and up
+
+@include xl {
+  @for $i from 1 through $grid-columns {
+    .col-xl-#{$i} {
+      flex-grow: 0;
+      box-sizing: border-box;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+// for extra extra large screen and up
+
+@include xxl {
+  @for $i from 1 through $grid-columns {
+    .col-xxl-#{$i} {
+      flex-grow: 0;
+      box-sizing: border-box;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}

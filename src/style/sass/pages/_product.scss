@@ -1,0 +1,133 @@
+@use "../abstracts/" as *;
+
+.single-product {
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: map-get($white, 100);
+    color: map-get($black, 100);
+    box-shadow: $boxShadow;
+    border-radius: 50%;
+    right: -40px;
+    visibility: hidden;
+    @include transition(0.5s, ease);
+    &::after {
+      font-size: 13px;
+    }
+    &:hover {
+      background-color: map-get($orange, 500);
+      color: map-get($white, 100);
+    }
+  }
+
+  .swiper-button-prev {
+    @extend .swiper-button-next;
+    left: -40px;
+  }
+  &:hover .swiper-button-next {
+    right: 10px;
+    visibility: visible;
+  }
+  &:hover .swiper-button-prev {
+    left: 10px;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 10px 20px;
+    font-size: toRem(13);
+    strong {
+      color: map-get($black, 100);
+      font-weight: 600;
+    }
+    h2 {
+      margin: 10px 0;
+    }
+    .prize {
+      display: flex;
+      font-size: 24px;
+      margin-bottom: 12px;
+      del {
+        color: map-get($white, 300);
+        margin-right: 15px;
+      }
+      span {
+        color: black;
+      }
+    }
+    .product-buttons {
+      margin-top: 20px;
+      .counter-cart {
+        display: flex;
+        .product-counter {
+          width: 120px;
+          display: flex;
+          margin-right: 20px;
+          border: 1px solid map-get($orange, 500);
+          .btn {
+            padding: 15px 6px;
+            border: none;
+            outline: none;
+            background: none;
+
+            cursor: pointer;
+            &:hover {
+              background: map-get($orange, 500);
+              color: white;
+            }
+            &.decrement {
+              border-right: 1px solid map-get($orange, 500);
+            }
+            &.increment {
+              border-left: 1px solid map-get($orange, 500);
+            }
+          }
+          input {
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: center;
+            font-weight: 600;
+          }
+        }
+      }
+      .wish-compare {
+        display: flex;
+        button {
+          margin-right: 15px;
+          margin-top: 20px;
+          background: none;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: capitalize;
+          cursor: pointer;
+          font-size: toRem(13);
+          &:hover {
+            color: map-get($orange, 500);
+          }
+          svg {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    .social {
+      display: flex;
+      text-transform: capitalize;
+      margin-top: 20px;
+      strong {
+        color: black;
+        margin-right: 10px;
+      }
+      a {
+        margin-right: 10px;
+        font-size: toRem(16);
+        color: map-get($black, 100);
+      }
+    }
+  }
+}

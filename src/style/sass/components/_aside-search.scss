@@ -1,0 +1,75 @@
+@use "../abstracts/" as *;
+
+.aside-search {
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  width: 100%;
+  @include transition(0.5s, ease);
+  &.open {
+    top: 0;
+  }
+  .inner-search {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: map-get($white, 100);
+    .form-wrap {
+      width: 100%;
+    }
+    form {
+      position: relative;
+      width: 95%;
+      margin: auto;
+      @include lg {
+        width: 50%;
+      }
+      input {
+        width: 100%;
+        padding: 15px;
+        font-size: toRem(17);
+        border: 1px solid map-get($white, 200);
+        outline: none;
+        border-radius: 5px;
+      }
+      button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 55px;
+        background: none;
+        border-radius: 0 5px 5px 0;
+        font-size: toRem(18);
+        padding: toRem(10);
+        color: white;
+        border: none;
+        outline: none;
+        background-color: map-get($orange, 500);
+        cursor: pointer;
+      }
+    }
+    .search-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      h4 {
+        color: map-get($black, 300);
+      }
+      ul {
+        display: flex;
+        margin-left: 15px;
+        li {
+          margin-left: 15px;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  @include overlay;
+}

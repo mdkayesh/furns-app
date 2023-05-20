@@ -1,0 +1,65 @@
+@use "../abstracts/" as *;
+
+.button-basic {
+  display: inline-block;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 15px 20px;
+  line-height: 1;
+  border: 0;
+  font-size: toRem(14);
+  font-family: Raleway;
+  font-weight: 600;
+  color: map-get($white, 100);
+  cursor: pointer;
+  @include transition(0.4s, ease);
+  @include md {
+    padding: 17px 36px;
+  }
+  &.orange {
+    background-color: map-get($orange, 500);
+    &:hover {
+      background-color: map-get($black, 100);
+      color: map-get($orange, 500);
+    }
+  }
+  &.black {
+    background-color: map-get($blue, 200);
+    &:hover {
+      background-color: map-get($orange, 500);
+      color: map-get($white, 100);
+    }
+  }
+  &.blue {
+    display: inline-block;
+    border-radius: 0px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(47, 51, 58);
+    text-transform: uppercase;
+
+    &:hover {
+      color: rgb(47, 51, 58) !important;
+      background-color: rgb(235, 235, 235);
+    }
+  }
+  &.white {
+    display: inline-block;
+    text-align: center;
+    padding: 17px 36px;
+    border-radius: 0px;
+    line-height: 1;
+    border: 0px;
+    transition: all 0.4s ease 0s;
+    font-family: Raleway;
+    font-weight: 600;
+    color: rgb(59, 72, 99);
+    background-color: rgb(235, 235, 235);
+    font-size: 14px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(47, 51, 58);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@use "../abstracts/" as *;
+
+footer {
+  background-color: map-get($blue, 200);
+  color: map-get($white, 100);
+  padding: 100px 0;
+  font-size: toRem(14);
+  h2 {
+    color: map-get($white, 100);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: toRem(18);
+    @include max-lg {
+    }
+  }
+  .footer-item {
+    @include max-lg {
+      border-top: 1px solid map-get($blue, 300);
+      margin-top: 25px;
+      padding-top: 25px;
+    }
+    .about {
+      padding-right: 25px;
+    }
+  }
+  .social-area {
+    display: flex;
+    margin-top: 25px;
+    li {
+      height: 35px;
+      width: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      @include transition(0.3s, ease);
+      &:hover {
+        background-color: map-get($orange, 500);
+      }
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+      a {
+        color: white;
+        font-size: toRem(17);
+      }
+    }
+  }
+
+  // footer link style
+
+  .footer-link {
+    line-height: 35px;
+    a {
+      color: map-get($white, 100);
+      @include transition(0.4s, ease);
+      &:hover {
+        color: map-get($orange, 500);
+        margin-left: 11px;
+      }
+    }
+  }
+
+  //   input style
+
+  .input-container {
+    input[type="email"] {
+      padding: 15px;
+      background: transparent;
+      border: 1px solid map-get($black, 400);
+      outline: none;
+      color: map-get($white, 100);
+      margin-bottom: 20px;
+      width: 100%;
+      @include transition(0.5s, ease-in-out);
+      &:focus {
+        border: 1px solid map-get($orange, 500);
+      }
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+}

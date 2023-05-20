@@ -1,0 +1,241 @@
+@use "../abstracts" as *;
+@use "../layout/grid";
+
+.header {
+  background-color: rgba(0, 0, 0, 0.686);
+  .top-header {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    display: none;
+    font-size: toRem(14);
+    @include bg-color($blue, 200);
+    @include lg {
+      display: flex;
+    }
+    .massage {
+      @include color($orange, 500);
+    }
+    .lang-currency {
+      display: flex;
+      justify-content: flex-end;
+      .lang {
+        margin-right: toRem(15);
+        position: relative;
+        .menu {
+          left: 0;
+        }
+      }
+      .currency {
+        position: relative;
+      }
+      button {
+        position: relative;
+        background: none;
+        border: none;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+        @include transition(0.3s, ease);
+        &:hover {
+          @include color($orange, 500);
+        }
+        &.active {
+          @include color($orange, 500);
+        }
+        svg {
+          margin-left: 5px;
+        }
+      }
+      .menu {
+        position: absolute;
+        background-color: white;
+        left: -50px;
+        width: 130px;
+        box-shadow: $boxShadow;
+        top: toRem(43);
+        visibility: hidden;
+        opacity: 0;
+        z-index: 99;
+        @include transition(0.5s, ease-in-out);
+        &.show {
+          top: toRem(34);
+          visibility: visible;
+          opacity: 1;
+        }
+        .menu-item {
+          padding: 0 15px;
+          &:not(:last-child) a {
+            border-bottom: 1px solid map-get($white, 200);
+          }
+          a {
+            display: block;
+            padding: 10px 0;
+            white-space: nowrap;
+            font-size: 14px;
+            @include color($black, 300);
+            @include transition(0.3s, ease);
+            &:hover {
+              @include color($orange, 500);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .middle-header {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    background-color: white;
+    display: none;
+    @include lg {
+      display: flex;
+    }
+    .logo {
+      width: 170px;
+    }
+    .inner-middle {
+      display: flex;
+      justify-content: flex-end;
+      .button {
+        position: relative;
+        margin-left: 15px;
+        padding-left: 15px;
+        .menu {
+          position: absolute;
+          background-color: white;
+          left: -50px;
+          width: 130px;
+          box-shadow: $boxShadow;
+          top: toRem(43);
+          visibility: hidden;
+          opacity: 0;
+          z-index: 99;
+          @include transition(0.5s, ease-in-out);
+          &.show {
+            top: toRem(34);
+            visibility: visible;
+            opacity: 1;
+          }
+          .menu-item {
+            padding: 0 15px;
+            &:not(:last-child) a {
+              border-bottom: 1px solid map-get($white, 200);
+            }
+            a {
+              display: block;
+              padding: 10px 0;
+              white-space: nowrap;
+              font-size: 14px;
+              @include color($black, 300);
+              @include transition(0.3s, ease);
+              &:hover {
+                @include color($orange, 500);
+              }
+            }
+          }
+        }
+        span {
+          font-size: 12px;
+          background-color: map-get($orange, 500);
+          color: map-get($white, 100);
+          padding: 2px 5px;
+          border-radius: 50%;
+          position: absolute;
+          top: -5px;
+          left: 75%;
+        }
+        &:not(:first-child)::before {
+          content: "";
+          position: absolute;
+          height: 70%;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          width: 2px;
+          background-color: rgb(235, 235, 235);
+        }
+        button {
+          background: none;
+          border: none;
+          font-size: 25px;
+          cursor: pointer;
+          @include transition(0.4s, ease);
+          &:hover {
+            color: map-get($orange, 500);
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-nav {
+    background-color: white;
+    display: block;
+    padding: 15px 0;
+    box-shadow: $boxShadow;
+    @include lg {
+      display: none;
+    }
+    .menubar {
+      font-size: toRem(25);
+      cursor: pointer;
+      @include max-sm {
+        font-size: toRem(23);
+      }
+    }
+    .logo {
+      max-width: 120px;
+      margin: auto;
+      @include max-sm {
+        width: 95px;
+      }
+    }
+    .settings {
+      display: flex;
+      justify-content: flex-end;
+      .button {
+        position: relative;
+        margin-left: 15px;
+        padding-left: 15px;
+        span {
+          font-size: 12px;
+          background-color: map-get($orange, 500);
+          color: map-get($white, 100);
+          padding: 2px 5px;
+          border-radius: 50%;
+          position: absolute;
+          top: -5px;
+          left: 75%;
+        }
+        &:not(:first-child)::before {
+          content: "";
+          position: absolute;
+          height: 70%;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          width: 2px;
+          background-color: rgb(235, 235, 235);
+        }
+        button {
+          background: none;
+          border: none;
+          font-size: 25px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          @include transition(0.4s, ease);
+          @include max-sm {
+            font-size: 20px;
+          }
+          &:hover {
+            color: map-get($orange, 500);
+          }
+        }
+      }
+    }
+  }
+}

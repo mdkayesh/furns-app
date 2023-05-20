@@ -1,0 +1,19 @@
+// abstracts file
+
+@use "./abstracts" as a;
+
+// base file
+
+@use "./base";
+
+// components file
+
+@use "./components";
+
+// layout file
+
+@use "./layout";
+
+// pages file
+
+@use "./pages";
